@@ -631,9 +631,9 @@ app.use((req, res) => {
 
 // Start Server after initializing DB
 initDB().then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
         console.log(`================================================`);
-        console.log(`🚀 Pulse Social Media Server running on http://localhost:${PORT}`);
+        console.log(`🚀 Pulse Social Media Server running on port ${PORT}`);
         console.log(`================================================`);
     });
 }).catch(err => {
