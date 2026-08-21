@@ -7,8 +7,8 @@
   <img src="https://img.shields.io/badge/🚀%20Live%20Demo-View%20Project-6366f1?style=for-the-badge&logoColor=white" alt="Live Demo" height="40"/>
 </a>
 &nbsp;&nbsp;
-<a href="https://github.com/Rohitraj-789/Social_Media_Platform" target="_blank">
-  <img src="https://img.shields.io/badge/⭐%20Star%20on%20GitHub-Rohitraj--789-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo" height="40"/>
+<a href="https://github.com/prashantsingh74600/Project1" target="_blank">
+  <img src="https://img.shields.io/badge/⭐%20Star%20on%20GitHub-prashantsingh74600-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repo" height="40"/>
 </a>
 
 <br/><br/>
@@ -57,6 +57,33 @@ User profiles · Posts · Likes · Comments · Follow system · Notifications ·
 
 ---
 
+## 🏗️ System Architecture & Data Flow
+
+```
++-----------------------------------------------------------------------+
+|                              CLIENT (SPA)                             |
+|  [ HTML5 Glassmorphic UI ] <---> [ JS App Controller & Auth Session ]  |
++-----------------------------------:-----------------------------------+
+                                    |
+                            HTTP / REST API Calls
+                                    |
++-----------------------------------v-----------------------------------+
+|                           EXPRESS BACKEND                             |
+|  [ Security Middleware (Cors/JWT) ] <---> [ Multer File Storage ]     |
+|                                   |                                   |
+|               [ REST Controller Endpoints / API Layer ]                |
++-----------------------------------:-----------------------------------+
+                                    |
+                            SQL Queries (sqlite3)
+                                    |
++-----------------------------------v-----------------------------------+
+|                          SQLITE DATABASE                              |
+|   (Users | Posts | Likes | Comments | Follows | Bookmarks | Notifs)   |
++-----------------------------------------------------------------------+
+```
+
+---
+
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
@@ -72,25 +99,28 @@ User profiles · Posts · Likes · Comments · Follow system · Notifications ·
 
 ---
 
-## 📁 Project Structure
+## 📁 File & Directory Architecture
 
 ```
 Social_Media_Platform/
 │
-├── server.js              # Express REST API (all routes)
-├── database.js            # SQLite schema + auto-seed data
-├── package.json           # Dependencies & npm scripts
-├── render.yaml            # Render.com deployment config
-├── .gitignore
+├── server.js              # Express REST API server & HTTP routes controller
+├── database.js            # SQLite database schema, helpers & seed data loader
+├── package.json           # Project manifest, npm dependencies & start script
+├── render.yaml            # Render cloud deployment configuration
+├── .gitignore             # Git ignore patterns (node_modules, DB, env)
 │
-├── uploads/               # User-uploaded images (auto-created)
-└── public/                # Static frontend (served by Express)
-    ├── index.html         # SPA shell — navbar, sidebar, modals
-    ├── css/style.css      # Glassmorphic design system (dark/light)
+├── uploads/               # Storage directory for user image attachments
+│   └── .gitkeep           # Git placeholder file
+│
+└── public/                # Static frontend Single Page Application (SPA)
+    ├── index.html         # SPA entry shell (Navbar, feeds, sidebars, modals)
+    ├── css/
+    │   └── style.css      # Design system (Glassmorphism, dark/light themes)
     └── js/
-        ├── api.js         # HTTP client + JWT token + toast utility
-        ├── auth.js        # Session manager (login/register/logout)
-        └── app.js         # SPA controller — all views & interactions
+        ├── api.js         # HTTP REST API client, JWT token & Toast UI
+        ├── auth.js        # Authentication session & user state manager
+        └── app.js         # Main SPA controller, routing & post interactions
 ```
 
 ---
@@ -99,8 +129,8 @@ Social_Media_Platform/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Rohitraj-789/Social_Media_Platform.git
-cd Social_Media_Platform
+git clone https://github.com/prashantsingh74600/Project1.git
+cd Project1
 
 # 2. Install dependencies
 npm install
